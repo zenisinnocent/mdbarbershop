@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MD Barber Shop | Premium Grooming</title>
+<meta name="description" content="MD Barber Shop offers premium haircuts, skin fades, beard trims, and grooming products. Book your appointment today.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #c8a45d;
+  --black: #101010;
+  --dark: #1b1b1b;
+  --muted: #aaa;
+  --border: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+header {
+  min-height: 85px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 8%;
+  position: sticky;
+  top: 0;
+  background: rgba(16, 16, 16, 0.95);
+  z-index: 10;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 30px;
+  letter-spacing: 3px;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 12px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--gold);
+}
+
+.cart-button {
+  position: relative;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 10px 16px;
+  font: 700 12px 'DM Sans', sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cart-button:hover {
+  background: var(--gold);
+  color: #111;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  background: var(--gold);
+  color: #111;
+  border-radius: 50%;
+  font-size: 11px;
+}
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 8%;
+  background:
+    linear-gradient(90deg, #101010 10%, rgba(16, 16, 16, 0.6)),
+    url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1600&q=80')
+    center/cover no-repeat;
+}
+
+.hero-content {
+  max-width: 650px;
+  animation: appear 1s ease;
+}
+
+.hero small {
+  color: var(--gold);
+  letter-spacing: 5px;
+  font-size: 13px;
+}
+
+.hero h1 {
+  font: 600 clamp(45px, 7vw, 85px)/1.1 'Playfair Display', serif;
+  margin: 25px 0;
+}
+
+.hero h1 span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero p {
+  color: #bbb;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 28px;
+  background: var(--gold);
+  color: #111;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: #fff;
+  transform: translateY(-4px);
+}
+
+section {
+  padding: 100px 8%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.section-title small {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+
+.section-title h2 {
+  font: 600 clamp(30px, 5vw, 45px) 'Playfair Display', serif;
+  margin-top: 12px;
+}
+
+.services,
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--dark);
+  padding: 35px;
+  border: 1px solid var(--border);
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--gold);
+}
+
+.card h3 {
+  font: 25px 'Playfair Display', serif;
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.price {
+  color: var(--gold);
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+.product img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.product button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: var(--gold);
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.product button:hover {
+  background: #fff;
+}
+
+.booking {
+  background: #191714;
+  text-align: center;
+}
+
+.booking form {
+  max-width: 600px;
+  margin: auto;
+  display: grid;
+  gap: 15px;
+  text-align: left;
+}
+
+.booking label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #ddd;
+}
+
+input,
+select {
+  padding: 16px;
+  background: var(--black);
+  border: 1px solid #444;
+  color: #fff;
+  width: 100%;
+  font: 400 15px 'DM Sans', sans-serif;
+}
+
+.booking button {
+  padding: 16px;
+  background: var(--gold);
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.booking button:hover {
+  background: #fff;
+}
+
+.form-status {
+  margin-top: 20px;
+  color: var(--gold);
+  text-align: center;
+  min-height: 24px;
+}
+
+footer {
+  padding: 35px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 1s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    padding: 15px 5%;
+    gap: 12px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  section {
+    padding: 70px 5%;
+  }
+
+  .hero {
+    min-height: 80vh;
+    padding: 60px 5%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="#top">MD.</a>
+
+  <nav aria-label="Main navigation">
+    <a href="#services">Services</a>
+    <a href="#work">Our Work</a>
+    <a href="#shop">Shop</a>
+    <a href="#booking">Book</a>
+  </nav>
+
+  <button class="cart-button" type="button" id="cartButton" aria-label="View cart">
+    Cart
+    <span class="cart-count" id="cartCount" aria-hidden="true">0</span>
+  </button>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-content">
+      <small>THE ART OF GROOMING</small>
+      <h1>Your Style.<br><span>Your Statement.</span></h1>
+      <p>Premium grooming. Expert cuts. Exceptional style. Experience the difference at MD Barber Shop.</p>
+      <a href="#booking" class="btn">Book Your Appointment</a>
+    </div>
+  </section>
+
+  <section id="services" class="reveal">
+    <div class="section-title">
+      <small>WHAT WE OFFER</small>
+      <h2>Our Services</h2>
+    </div>
+
+    <div class="services">
+      <article class="card">
+        <h3>Classic Haircut</h3>
+        <p>A clean, stylish haircut tailored to your face shape, hair type, and personal style.</p>
+      </article>
+
+      <article class="card">
+        <h3>Skin Fade</h3>
+        <p>Sharp fades with seamless blending, clean lines, and a polished finish.</p>
+      </article>
+
+      <article class="card">
+        <h3>Beard Trim</h3>
+        <p>Precision beard shaping, detailing, and grooming for a sharp, well-maintained look.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="work" class="reveal">
+    <div class="section-title">
+      <small>OUR PORTFOLIO</small>
+      <h2>The Art of the Cut</h2>
+    </div>
+
+    <div class="gallery">
+      <img
+        src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80"
+        alt="Barber styling a client's hair"
+        loading="lazy"
+        width="800"
+        height="600">
+
+      <img
+        src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80"
+        alt="Barber giving a precise haircut"
+        loading="lazy"
+        width="800"
+        height="600">
+
+      <img
+        src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+        alt="Interior of a modern barbershop"
+        loading="lazy"
+        width="800"
+        height="600">
+    </div>
+  </section>
+
+  <section id="shop" class="reveal">
+    <div class="section-title">
+      <small>PREMIUM GROOMING</small>
+      <h2>Our Products</h2>
+    </div>
+
+    <div class="products">
+      <article class="card product">
+        <img
+          src="https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=800&q=80"
+          alt="Hair styling clay product"
+          loading="lazy"
+          width="800"
+          height="600">
+        <h3>Hair Clay</h3>
+        <p>Matte finish, strong hold, and easy restyling.</p>
+        <p class="price">RM 35.00</p>
+        <button type="button" data-product="Hair Clay">Add to Cart</button>
+      </article>
+
+      <article class="card product">
+        <img
+          src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80"
+          alt="Beard oil bottle"
+          loading="lazy"
+          width="800"
+          height="600">
+        <h3>Beard Oil</h3>
+        <p>Conditions, softens, and adds a healthy shine.</p>
+        <p class="price">RM 29.00</p>
+        <button type="button" data-product="Beard Oil">Add to Cart</button>
+      </article>
+    </div>
+
+    <p id="cartMessage" class="form-status" role="status" aria-live="polite"></p>
+  </section>
+
+  <section id="booking" class="booking reveal">
+    <div class="section-title">
+      <small>RESERVE YOUR CHAIR</small>
+      <h2>Book an Appointment</h2>
+    </div>
+
+    <form id="bookingForm" novalidate>
+      <div>
+        <label for="fullName">Full name *</label>
+        <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+      </div>
+
+      <div>
+        <label for="whatsapp">WhatsApp number *</label>
+        <input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel" required>
+      </div>
+
+      <div>
+        <label for="service">Service *</label>
+        <select id="service" name="service" required>
+          <option value="">Choose service</option>
+          <option value="Classic Haircut">Classic Haircut</option>
+          <option value="Skin Fade">Skin Fade</option>
+          <option value="Beard Trim">Beard Trim</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="bookingDate">Preferred date *</label>
+        <input id="bookingDate" name="bookingDate" type="date" required>
+      </div>
+
+      <div>
+        <label for="bookingTime">Preferred time *</label>
+        <select id="bookingTime" name="bookingTime" required>
+          <option value="">Choose time</option>
+          <option value="10:00 AM">10:00 AM</option>
+          <option value="12:00 PM">12:00 PM</option>
+          <option value="2:00 PM">2:00 PM</option>
+          <option value="4:00 PM">4:00 PM</option>
+          <option value="6:00 PM">6:00 PM</option>
+        </select>
+      </div>
+
+      <button type="submit">Request Booking via WhatsApp</button>
+    </form>
+
+    <p id="bookingMessage" class="form-status" role="status" aria-live="polite"></p>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 MD Barber Shop &middot; Precision &middot; Style &middot; Excellence
+</footer>
+
+<script>
+const WHATSAPP_NUMBER = "WHATSAPP_NUMBER_HERE";
+const CART_STORAGE_KEY = "md-barber-cart";
+
+const cartButton = document.getElementById("cartButton");
+const cartCount = document.getElementById("cartCount");
+const cartMessage = document.getElementById("cartMessage");
+const bookingForm = document.getElementById("bookingForm");
+const bookingMessage = document.getElementById("bookingMessage");
+const bookingDate = document.getElementById("bookingDate");
+
+function getCart() {
+  try {
+    return JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [];
+  } catch {
+    return [];
+  }
+}
+
+function saveCart(cart) {
+  localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+}
+
+function updateCartCount() {
+  cartCount.textContent = getCart().length;
+}
+
+function addToCart(product) {
+  const cart = getCart();
+  cart.push(product);
+  saveCart(cart);
+  updateCartCount();
+  cartMessage.textContent = `${product} added to your cart.`;
+}
+
+document.querySelectorAll("[data-product]").forEach(button => {
+  button.addEventListener("click", () => addToCart(button.dataset.product));
+});
+
+cartButton.addEventListener("click", () => {
+  const cart = getCart();
+  cartMessage.textContent = cart.length
+    ? `Your cart: ${cart.join(", ")}.`
+    : "Your cart is empty.";
+});
+
+bookingDate.min = new Date().toISOString().split("T")[0];
+
+bookingForm.addEventListener("submit", event => {
+  event.preventDefault();
+
+  if (!bookingForm.checkValidity()) {
+    bookingForm.reportValidity();
+    return;
+  }
+
+  const data = new FormData(bookingForm);
+  const message =
+    `Hello MD Barber Shop, I would like to book an appointment.%0A%0A` +
+    `Name: ${encodeURIComponent(data.get("fullName"))}%0A` +
+    `WhatsApp: ${encodeURIComponent(data.get("whatsapp"))}%0A` +
+    `Service: ${encodeURIComponent(data.get("service"))}%0A` +
+    `Date: ${encodeURIComponent(data.get("bookingDate"))}%0A` +
+    `Time: ${encodeURIComponent(data.get("bookingTime"))}`;
+
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+  window.open(whatsappUrl, "_blank", "noopener");
+
+  bookingMessage.textContent =
+    "Opening WhatsApp with your booking details. Please press Send to confirm.";
+  bookingForm.reset();
+});
+
+updateCartCount();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+});
+
+document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
+</script>
+
+</body>
+</html>
