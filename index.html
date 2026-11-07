@@ -129,4 +129,676 @@ nav a:focus-visible {
     center/cover no-repeat;
 }
 
-.hero-co
+.hero-content {
+  max-width: 650px;
+  animation: appear 1s ease;
+}
+
+.hero small {
+  color: var(--gold);
+  letter-spacing: 5px;
+  font-size: 13px;
+}
+
+.hero h1 {
+  font: 600 clamp(45px, 7vw, 85px)/1.1 'Playfair Display', serif;
+  margin: 25px 0;
+}
+
+.hero h1 span {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero p {
+  color: #bbb;
+  margin-bottom: 30px;
+}
+
+.hours {
+  display: inline-block;
+  margin-bottom: 30px;
+  padding: 8px 16px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 28px;
+  background: var(--gold);
+  color: #111;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: #fff;
+  transform: translateY(-4px);
+}
+
+section {
+  padding: 100px 8%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.section-title small {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+
+.section-title h2 {
+  font: 600 clamp(30px, 5vw, 45px) 'Playfair Display', serif;
+  margin-top: 12px;
+}
+
+/* ---------- Services: compact, unique "menu tickets" ---------- */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 16px;
+}
+
+.service {
+  position: relative;
+  overflow: hidden;
+  padding: 22px 18px 20px;
+  background: linear-gradient(160deg, #1d1d1d 0%, #141414 100%);
+  border: 1px solid var(--border);
+  border-radius: 4px 22px 4px 22px;
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.service::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 3px;
+  background: var(--gold);
+  transition: width 0.4s ease;
+}
+
+.service:hover {
+  transform: translateY(-6px) rotate(-0.6deg);
+  border-color: var(--gold);
+}
+
+.service:hover::before {
+  width: 100%;
+}
+
+.service-num {
+  position: absolute;
+  top: 6px;
+  right: 14px;
+  font: 700 46px/1 'Playfair Display', serif;
+  color: rgba(200, 164, 93, 0.12);
+  pointer-events: none;
+}
+
+.service-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.service h3 {
+  font: 600 17px 'Playfair Display', serif;
+  margin-bottom: 6px;
+}
+
+.service p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.service-tag {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 2px 9px;
+  border: 1px dashed var(--gold);
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ---------- Products ---------- */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--dark);
+  padding: 35px;
+  border: 1px solid var(--border);
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--gold);
+}
+
+.card h3 {
+  font: 25px 'Playfair Display', serif;
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.price {
+  color: var(--gold);
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+.product img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.product button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: var(--gold);
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.product button:hover {
+  background: #fff;
+}
+
+.booking {
+  background: #191714;
+  text-align: center;
+}
+
+.booking form {
+  max-width: 600px;
+  margin: auto;
+  display: grid;
+  gap: 15px;
+  text-align: left;
+}
+
+.booking label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #ddd;
+}
+
+input,
+select {
+  padding: 16px;
+  background: var(--black);
+  border: 1px solid #444;
+  color: #fff;
+  width: 100%;
+  font: 400 15px 'DM Sans', sans-serif;
+}
+
+.booking button {
+  padding: 16px;
+  background: var(--gold);
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.booking button:hover {
+  background: #fff;
+}
+
+.form-hint {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.form-status {
+  margin-top: 20px;
+  color: var(--gold);
+  text-align: center;
+  min-height: 24px;
+}
+
+footer {
+  padding: 35px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 1s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    padding: 15px 5%;
+    gap: 12px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  section {
+    padding: 70px 5%;
+  }
+
+  .hero {
+    min-height: 80vh;
+    padding: 60px 5%;
+  }
+
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .service {
+    padding: 18px 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="#top">MD.</a>
+
+  <nav aria-label="Main navigation">
+    <a href="#services">Services</a>
+    <a href="#work">Our Work</a>
+    <a href="#shop">Shop</a>
+    <a href="#booking">Book</a>
+  </nav>
+
+  <button class="cart-button" type="button" id="cartButton" aria-label="View cart">
+    Cart
+    <span class="cart-count" id="cartCount" aria-hidden="true">0</span>
+  </button>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-content">
+      <small>THE ART OF GROOMING</small>
+      <h1>Your Style.<br><span>Your Statement.</span></h1>
+      <p>Premium grooming. Expert cuts. Exceptional style. Experience the difference at MD Barber Shop.</p>
+      <div class="hours">OPEN DAILY &middot; 10 AM &ndash; 2 AM</div><br>
+      <a href="#booking" class="btn">Book Your Appointment</a>
+    </div>
+  </section>
+
+  <section id="services" class="reveal">
+    <div class="section-title">
+      <small>WHAT WE OFFER</small>
+      <h2>Our Services</h2>
+    </div>
+
+    <div class="services" id="servicesGrid"></div>
+  </section>
+
+  <section id="work" class="reveal">
+    <div class="section-title">
+      <small>OUR PORTFOLIO</small>
+      <h2>The Art of the Cut</h2>
+    </div>
+
+    <div class="gallery">
+      <img
+        src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80"
+        alt="Barber styling a client's hair"
+        loading="lazy"
+        width="800"
+        height="600">
+
+      <img
+        src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80"
+        alt="Barber giving a precise haircut"
+        loading="lazy"
+        width="800"
+        height="600">
+
+      <img
+        src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+        alt="Interior of a modern barbershop"
+        loading="lazy"
+        width="800"
+        height="600">
+    </div>
+  </section>
+
+  <section id="shop" class="reveal">
+    <div class="section-title">
+      <small>PREMIUM GROOMING</small>
+      <h2>Our Products</h2>
+    </div>
+
+    <div class="products">
+      <article class="card product">
+        <img
+          src="https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=800&q=80"
+          alt="Hair styling clay product"
+          loading="lazy"
+          width="800"
+          height="600">
+        <h3>Hair Clay</h3>
+        <p>Matte finish, strong hold, and easy restyling.</p>
+        <p class="price">RM 35.00</p>
+        <button type="button" data-product="Hair Clay">Add to Cart</button>
+      </article>
+
+      <article class="card product">
+        <img
+          src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80"
+          alt="Beard oil bottle"
+          loading="lazy"
+          width="800"
+          height="600">
+        <h3>Beard Oil</h3>
+        <p>Conditions, softens, and adds a healthy shine.</p>
+        <p class="price">RM 29.00</p>
+        <button type="button" data-product="Beard Oil">Add to Cart</button>
+      </article>
+    </div>
+
+    <p id="cartMessage" class="form-status" role="status" aria-live="polite"></p>
+  </section>
+
+  <section id="booking" class="booking reveal">
+    <div class="section-title">
+      <small>RESERVE YOUR CHAIR</small>
+      <h2>Book an Appointment</h2>
+    </div>
+
+    <form id="bookingForm" novalidate>
+      <div>
+        <label for="fullName">Full name *</label>
+        <input id="fullName" name="fullName" type="text" autocomplete="name" required>
+      </div>
+
+      <div>
+        <label for="whatsapp">WhatsApp number *</label>
+        <input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel" required>
+      </div>
+
+      <div>
+        <label for="service">Service *</label>
+        <select id="service" name="service" required>
+          <option value="">Choose service</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="bookingDate">Preferred date *</label>
+        <input id="bookingDate" name="bookingDate" type="date" required>
+      </div>
+
+      <div>
+        <label for="bookingTime">Preferred time *</label>
+        <select id="bookingTime" name="bookingTime" required>
+          <option value="">Choose time</option>
+        </select>
+        <p class="form-hint">We are open 10 AM to 2 AM. Slots from 12 AM to 2 AM fall after midnight, on the day after your selected date.</p>
+      </div>
+
+      <button type="submit">Request Booking via WhatsApp</button>
+    </form>
+
+    <p id="bookingMessage" class="form-status" role="status" aria-live="polite"></p>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2026 MD Barber Shop &middot; Precision &middot; Style &middot; Excellence
+</footer>
+
+<script>
+const WHATSAPP_NUMBER = "WHATSAPP_NUMBER_HERE";
+const CART_STORAGE_KEY = "md-barber-cart";
+
+/* ---------- Edit your services here ---------- */
+const SERVICES = [
+  { name: "Classic Haircut",     icon: "✂", tag: "Signature", desc: "Tailored to your face shape, hair type and style." },
+  { name: "Skin Fade",           icon: "◐", tag: "Popular",   desc: "Seamless blend, razor-clean lines, sharp finish." },
+  { name: "Beard Trim",          icon: "◈", tag: "Detail",    desc: "Shaped, lined and tidied with precision." },
+  { name: "Hot Towel Shave",     icon: "♨", tag: "Relax",     desc: "Warm towels, rich lather, smooth straight-razor shave." },
+  { name: "Line-Up & Edge",      icon: "▭", tag: "Quick",     desc: "Crisp hairline and neckline touch-up." },
+  { name: "Kids Haircut",        icon: "★", tag: "Under 12",  desc: "Patient, friendly cuts for the little ones." },
+  { name: "Wash & Style",        icon: "≋", tag: "Fresh",     desc: "Shampoo, scalp massage and a styled finish." },
+  { name: "Hair Colouring",      icon: "◆", tag: "Bold",      desc: "Cover greys or go bold with a new colour." },
+  { name: "Scalp Treatment",     icon: "❖", tag: "Care",      desc: "Deep cleanse to soothe and refresh your scalp." },
+  { name: "Cut + Beard Combo",   icon: "✦", tag: "Best value", desc: "Full haircut and beard grooming in one session." }
+];
+
+/* ---------- Opening hours: 10 AM to 2 AM (hourly slots) ---------- */
+const OPEN_HOUR = 10;   // 10 AM
+const CLOSE_HOUR = 26;  // 2 AM next day (24 + 2)
+
+function formatHour(hour24) {
+  const h = hour24 % 24;
+  const suffix = h >= 12 ? "PM" : "AM";
+  const h12 = h % 12 === 0 ? 12 : h % 12;
+  return `${h12}:00 ${suffix}`;
+}
+
+const cartButton = document.getElementById("cartButton");
+const cartCount = document.getElementById("cartCount");
+const cartMessage = document.getElementById("cartMessage");
+const bookingForm = document.getElementById("bookingForm");
+const bookingMessage = document.getElementById("bookingMessage");
+const bookingDate = document.getElementById("bookingDate");
+const servicesGrid = document.getElementById("servicesGrid");
+const serviceSelect = document.getElementById("service");
+const timeSelect = document.getElementById("bookingTime");
+
+/* Build service cards + dropdown from one list */
+SERVICES.forEach((s, i) => {
+  const article = document.createElement("article");
+  article.className = "service";
+
+  const num = document.createElement("span");
+  num.className = "service-num";
+  num.setAttribute("aria-hidden", "true");
+  num.textContent = String(i + 1).padStart(2, "0");
+
+  const icon = document.createElement("div");
+  icon.className = "service-icon";
+  icon.setAttribute("aria-hidden", "true");
+  icon.textContent = s.icon;
+
+  const title = document.createElement("h3");
+  title.textContent = s.name;
+
+  const desc = document.createElement("p");
+  desc.textContent = s.desc;
+
+  const tag = document.createElement("span");
+  tag.className = "service-tag";
+  tag.textContent = s.tag;
+
+  article.append(num, icon, title, desc, tag);
+  servicesGrid.appendChild(article);
+
+  const option = document.createElement("option");
+  option.value = s.name;
+  option.textContent = s.name;
+  serviceSelect.appendChild(option);
+});
+
+/* Build time slots */
+for (let hour = OPEN_HOUR; hour <= CLOSE_HOUR; hour++) {
+  const label = formatHour(hour);
+  const option = document.createElement("option");
+  option.value = label;
+  option.textContent = hour >= 24 ? `${label} (after midnight)` : label;
+  timeSelect.appendChild(option);
+}
+
+function getCart() {
+  try {
+    return JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [];
+  } catch {
+    return [];
+  }
+}
+
+function saveCart(cart) {
+  try {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+  } catch {
+    /* storage unavailable, ignore */
+  }
+}
+
+function updateCartCount() {
+  cartCount.textContent = getCart().length;
+}
+
+function addToCart(product) {
+  const cart = getCart();
+  cart.push(product);
+  saveCart(cart);
+  updateCartCount();
+  cartMessage.textContent = `${product} added to your cart.`;
+}
+
+document.querySelectorAll("[data-product]").forEach(button => {
+  button.addEventListener("click", () => addToCart(button.dataset.product));
+});
+
+cartButton.addEventListener("click", () => {
+  const cart = getCart();
+  cartMessage.textContent = cart.length
+    ? `Your cart: ${cart.join(", ")}.`
+    : "Your cart is empty.";
+});
+
+bookingDate.min = new Date().toISOString().split("T")[0];
+
+bookingForm.addEventListener("submit", event => {
+  event.preventDefault();
+
+  if (!bookingForm.checkValidity()) {
+    bookingForm.reportValidity();
+    return;
+  }
+
+  const data = new FormData(bookingForm);
+  const message = [
+    "Hello MD Barber Shop, I would like to book an appointment.",
+    "",
+    `Name: ${data.get("fullName")}`,
+    `WhatsApp: ${data.get("whatsapp")}`,
+    `Service: ${data.get("service")}`,
+    `Date: ${data.get("bookingDate")}`,
+    `Time: ${data.get("bookingTime")}`
+  ].join("\n");
+
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  window.open(whatsappUrl, "_blank", "noopener");
+
+  bookingMessage.textContent =
+    "Opening WhatsApp with your booking details. Please press Send to confirm.";
+  bookingForm.reset();
+});
+
+updateCartCount();
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+});
+
+document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
+</script>
+
+</body>
+</html>
