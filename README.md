@@ -1,84 +1,97 @@
-# MD BARBERSHOP
+# MD Barber Shop – Website
 
-Website for **MD Barber Shop**, a premium barber shop in SS15, Subang Jaya, Selangor, Malaysia. Open daily, 10 AM to 2 AM.
+Single-page website for **MD Barber Shop, SS15, Subang Jaya**. It's one self-contained HTML file with no build step and no dependencies. Open it in a browser, or upload it to any static host.
 
-The whole site is one self-contained file (`index.html`). There is no build step, no framework, no server and no extra folders needed. The logo, photos, videos, product pictures and review screenshots are all saved inside the file. Because of that, the file is large (about 12 MB).
+## Files
+
+| File | Purpose |
+|------|---------|
+| `md-barbershop-simplified.html` | The full site, with all images and videos embedded. This is the file to deploy. |
+| `md-barbershop-code-only.html` | Same code with the media replaced by `__B64_n__` placeholders. Use it for reading and editing. |
+
+> Edit the code-only file, then paste the media back in. Alternatively, edit the full file directly in a code editor.
 
 ## Features
 
-- Animated loading screen with a spinning barber pole, then a hero section with gold dust particles and a live "Open now / Closed now" badge (Malaysia time)
-- Shop logo in the header and as the browser tab icon
-- 14 services with prices, shown as tilting cards, plus a scrolling services strip
-- "The Art of the Cut" gallery with four silent looping videos and a photo. Click any tile to view it full size
-- Product shop with five products and a slide-out cart. The cart is saved in the visitor's browser and can be sent as an order on WhatsApp
-- Google reviews section with a "Customer Reviews" tab (review screenshots) and a "Leave a Review" tab
-- Booking form that opens WhatsApp with the customer's details filled in
-- Visit section with address, opening hours, Google Map, directions and social links
-- Floating WhatsApp button, scroll progress bar and smooth reveal animations
-- Works on phones, tablets and desktops. Animations switch off for visitors who prefer reduced motion
+- Animated hero with an open/closed status badge (Malaysia time) and a barber-pole preloader
+- Services grid, generated from a list in the script
+- Gallery of 4 videos and 1 photo, with a lightbox
+- Product shop with a cart drawer saved in `localStorage` and ordering through WhatsApp
+- Google review screenshots, plus a tab for leaving a review
+- Booking form that sends the request through WhatsApp
+- Google Map, directions links, and social links
+- Responsive layout, keyboard accessible, respects `prefers-reduced-motion`
 
-## Services and prices
+## Editing content
 
-| Service | Price |
-| --- | --- |
-| Hair Dry Cut | RM 30 |
-| Cut and Wash | RM 40 |
-| Cut, Wash & Shave | RM 50 |
-| Facial | RM 50 - 150 |
-| Facial Wax with Ears | RM 40 |
-| Shave | RM 25 |
-| Beard Design & Trim | RM 25 |
-| Black Colour | RM 70 |
-| Hair Colour | RM 100 - 200 |
-| Silver Colour | RM 300 |
-| Rebonding | RM 100 - 250 |
-| Hair Perm | RM 200 - 250 |
-| Hair Treatment | RM 100 - 250 |
-| Oil Hair Therapy | RM 100 |
+All settings are at the top of the `<script>` block.
 
-## Products
-
-All products are RM 50.00 each.
-
-- Wild West American Pomade
-- The Silka Barber American Pomade
-- Wild West American Mud
-- Spider Wax
-- Silka Barber Hairspray
-
-## Contact
-
-- **Address:** 5, Jalan SS 15/4c, SS 15, 47500 Subang Jaya, Selangor
-- **WhatsApp:** 018-217 3415
-- **TikTok:** https://www.tiktok.com/@mdbarberss
-- **Instagram:** https://www.instagram.com/mdbarbershopss15/
-- **Facebook:** https://www.facebook.com/my.daring.saloon/
-
-## Run locally
-
-1. Download `index.html`.
-2. Double-click it to open it in your browser.
-
-Fonts, the map and the hero background photo load from the internet, so you need to be online to see them.
-
-## Deploy on GitHub Pages
-
-1. Create a repository and upload `index.html` to the root (the top level, not inside a folder).
-2. Go to **Settings, then Pages**.
-3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
-4. Choose the `main` branch and the `/ (root)` folder, then click **Save**.
-5. After a minute or two, your site is live at `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/`.
-
-If the old tab icon still shows after an update, refresh with Ctrl+Shift+R (Cmd+Shift+R on a Mac) or open the site in a private window. Browsers keep tab icons for a long time.
-
-## How to edit the site
-
-Open `index.html` in a text editor. Most things you will want to change are at the top of the `<script>` section near the bottom of the file.
-
-| What to change | Where to find it |
-| --- | --- |
-| Browser tab title | The `<title>` tag at the top of the file |
-| WhatsApp number | `WHATSAPP_NUMBER` (use the international format, for example `60182173415`) |
+| What | Where |
+|------|-------|
+| WhatsApp number | `WHATSAPP_NUMBER` (international format, no `+`, e.g. `60182173415`) |
 | Address and map | `ADDRESS` |
-| Social media links | `SOCIALS` |
-| Services, descriptions and prices | `SERVICES`. Each service has a `name`, `icon`, `tag`, `desc` and an optional `price`. A price can be a number such as `30` or a range written as text
+| Opening hours | `OPEN_HOUR` and `CLOSE_HOUR` (`26` means 2 AM the next day) |
+| Services and prices | `SERVICES` array (`name`, `icon`, `tag`, `price`, `desc`) |
+| Social links | `SOCIALS` array |
+| Text reviews | `REVIEWS` array (empty by default) |
+| Google review link | `GOOGLE_REVIEWS_URL` (currently a Maps search; swap in your exact review link) |
+
+Some text is written directly in the HTML, so change it there too:
+
+- hero text and the "OPEN DAILY" badge
+- the stats numbers (`data-count`)
+- the address and hours in the **Visit** section and footer
+- the booking hint, which mentions "10 AM to 2 AM"
+- the status text in `updateStatus()`
+
+### Products
+
+Products are plain HTML `<article class="card product">` blocks. Each has a `<button>` with `data-product` (name) and `data-price` (number). Add or remove a block and the cart picks it up automatically.
+
+### Adding a review as text
+
+```js
+const REVIEWS = [
+  { name: "Reviewer Name", stars: 5, text: "Exactly what they wrote.", when: "2 months ago" }
+];
+```
+
+### Replacing images and videos
+
+Media is embedded as base64 `data:` URIs. To swap one, replace the `src` (or `poster`) value with a new data URI or a normal file path such as `images/hero.jpg`. Linking to files makes the HTML much smaller.
+
+## Customising the look
+
+Colours and fonts are CSS variables at the top of `<style>`:
+
+```css
+:root {
+  --gold: #c8a45d;  --gold-soft: #e6c987;
+  --black: #101010; --dark: #1b1b1b;
+  --serif: 'Playfair Display', serif;
+  --sans: 'DM Sans', sans-serif;
+}
+```
+
+## Deploying
+
+Upload the file as `index.html` to any static host (Netlify, Vercel, GitHub Pages, Cloudflare Pages, or normal web hosting). No server code is needed.
+
+## External services
+
+- Google Fonts (DM Sans, Playfair Display)
+- Unsplash (hero background image)
+- Google Maps embed
+- WhatsApp (`wa.me` links)
+
+The page still works without these, but the fonts, hero background and map won't load.
+
+## Notes
+
+- The cart is stored in the browser's `localStorage` under `md-barber-cart-v2`. Payment is in store, and orders are confirmed on WhatsApp.
+- The booking form doesn't store anything. It opens WhatsApp with a pre-filled message, and the customer has to press **Send**.
+- Booking slots run from 10 AM to 2 AM. Slots after midnight fall on the day after the chosen date.
+
+## License
+
+© 2026 MD Barber Shop. All rights reserved.
