@@ -19,12 +19,11 @@ The whole site is one self-contained file, `index.html`. There is no build step 
 
 ## Running it
 
-Open `index.html` in a browser. To serve it locally:
+Open `index.html` in a browser. To serve it locally, run:
 
-```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000
-```
+    python3 -m http.server 8000
+
+then visit http://localhost:8000
 
 It can be hosted on any static host (GitHub Pages, Netlify, Cloudflare Pages, or plain web hosting). Upload `index.html` and nothing else.
 
@@ -69,10 +68,8 @@ There is no backend. Both the booking form and the cart build a text message and
 
 ## Project structure
 
-```
-index.html   # the entire site: HTML, CSS and JS (media embedded)
-README.md
-```
+    index.html   # the entire site: HTML, CSS and JS (media embedded)
+    README.md
 
 Inside `index.html`: `<style>` holds all CSS (sections marked with `/* ---------- Name ---------- */`), then the HTML sections (`hero`, `services`, `work`, `shop`, `reviews`, `booking`, `visit`), then one `<script>` with all behaviour.
 
